@@ -4,7 +4,7 @@ const llamadoApi= async()=>{
         const respuesta = await fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281")
         const data = await respuesta.json()
         let resultado="";
-        for(i=0; i<12;i++){
+        for(i=0; i<120;i++){
             const pokemon = await fetch(data.results[i].url);
             const data1 = await pokemon.json();
             let plantilla = `
@@ -43,17 +43,8 @@ const llamadoApi= async()=>{
 
 
 self.addEventListener('message', async function(event){
-    const data = event.data;
-    let result;
-    
-    switch(data.type){
-        case 'showPokemon':
-            result= await llamadoApi();
-            break;   
-        default:
-            result="False"
-    }
 
+    let result= await llamadoApi();
     self.postMessage(result);
 
 });
