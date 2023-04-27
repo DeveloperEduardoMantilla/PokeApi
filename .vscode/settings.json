@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
         "Consumo de APis"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }
